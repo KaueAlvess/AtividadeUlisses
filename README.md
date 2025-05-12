@@ -1,43 +1,56 @@
-##🚗 Sistema de Locação de Carros
-Este projeto tem como objetivo desenvolver um sistema completo de aluguel de carros, permitindo ao usuário realizar operações básicas de um CRUD (Create, Read, Update, Delete), com um banco de dados estruturado e uma interface web funcional e informativa.
+# 🚗 **Sistema de Locação de Carros**
 
-##📌 Funcionalidades
-Inserção de dados de locação
+Este repositório contém o desenvolvimento de um sistema completo para aluguel de carros, utilizando as operações fundamentais de um CRUD com integração a um banco de dados relacional e uma interface web interativa.
 
-Exclusão de dados de locação
+---
 
-Atualização de dados de locação
+## 📌 **Funcionalidades**
 
-Pesquisa de carros disponíveis para locação
+- Inserção de dados de locação
+- Exclusão de dados de locação
+- Atualização de dados de locação
+- Pesquisa de carros disponíveis para alugar
+- Escolha do tipo de carro e tempo de permanência
+- Definição da forma de pagamento
+- Indicação do objetivo da locação
 
-Escolha do tipo de carro e tempo de permanência
+---
 
-Definição da forma de pagamento
+## 🗃️ **Banco de Dados**
 
-Especificação do objetivo da locação
+- Contém **mínimo de 10 carros cadastrados**
+- Dados elaborados: modelo, tipo, ano, valor da diária, disponibilidade, etc.
 
-##🗃️ Banco de Dados
-Contém pelo menos 10 carros cadastrados
+---
 
-Dados elaborados, como modelo, tipo, ano, valor da diária, entre outros
+## 💻 **Front-End**
 
-##💻 Front-End
-Barra de pesquisa funcional
+- Barra de pesquisa funcional
+- Informações detalhadas sobre os carros
+- Interface amigável e moderna
 
-Apresentação detalhada dos carros disponíveis
+---
 
-Interface intuitiva para facilitar a locação
+## 🔧 **Back-End**
 
-##🔧 Back-End
-Funcionalidades de SELECT, DELETE e UPDATE implementadas
+- Funcionalidades implementadas:
+  - `SELECT`
+  - `DELETE`
+  - `UPDATE`
+- Conexão com banco de dados para persistência de dados
 
-Integração com o banco de dados para garantir persistência dos dados
+---
 
-##📅 Entregas
-1ª Entrega: 26/05
+## 📅 **Cronograma de Entregas**
 
-2ª Entrega (Final): 16/06 e 23/06
+- **1ª Entrega:** 26/05  
+- **2ª Entrega (Final):** 16/06 e 23/06
 
-##👥 Equipe
-Projeto desenvolvido por um grupo de 4 pessoas, com foco em aplicar os conhecimentos de front-end, back-end e banco de dados em um projeto realista e funcional.
+---
+
+## 👥 **Equipe**
+
+Projeto desenvolvido por um grupo de **4 integrantes**, com o objetivo de aplicar conhecimentos práticos de desenvolvimento web full stack e banco de dados em um sistema funcional.
+
+---
 
