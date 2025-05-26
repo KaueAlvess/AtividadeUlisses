@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Locadora de Carros</title>
+  <link rel="stylesheet" href="detalhes.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="carros.css" />
+</head>
+<body>
+
+  <!-- Header com Menu de Navegação -->
+  <header class="site-header">
+    <div class="logo">🚗 Locadora de Carros</div>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="#">Produtos</a></li>
+        <li><a href="locacao.html">Locação</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="sac.html">SAC</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Seção de introdução -->
+  <section class="hero">
+    <h1>Escolha o carro perfeito para sua próxima viagem!</h1>
+  </section>
+
+<!-- Container de carros -->
+<main class="carros-container">
+  <!-- Card 1 -->
+  <div class="card">
+    <img src="https://s2-autoesporte.glbimg.com/eR5mRr74YzAa0YGcOJQxKAH0y4c=/0x0:620x400/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/w/1/nrsDdXTpSRnonpdBJERA/2015-03-19-uno2.png" alt="Fiat Uno" />
+    <h2>Fiat Uno</h2>
+    <p>R$ 100/dia</p>
+    <button class="btn-info" onclick="abrirModal('fiat')">Informações</button>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <img src="https://www.webmotors.com.br/imagens/prod/347690/VOLKSWAGEN_GOL_1.0_12V_MPI_TOTALFLEX_4P_MANUAL_34769009012781312.webp" alt="VW Gol" />
+    <h2>VW Gol</h2>
+    <p>R$ 120/dia</p>
+    <button class="btn-info" onclick="abrirModal('gol')">Informações</button>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <img src="https://cqcs.com.br/wp-content/uploads/2024/04/kwid-2022-zen-03.png" alt="Renault Kwid" />
+    <h2>Renault Kwid</h2>
+    <p>R$ 130/dia</p>
+    <button class="btn-info" onclick="abrirModal('kwide')">Informações</button>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXuS4mdJL-7ljjH8-Cqg2eXeJhdIPoHJsto15ODCDLIcwQt0e-Y99f2EZaW3jFbXm1jPY&usqp=CAU" alt="Hyundai HB20" />
+    <h2>Hyundai HB20</h2>
+    <p>R$ 150/dia</p>
+    <button class="btn-info" onclick="abrirModal('hb20')">Informações</button>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <img src="https://secure-developments.com/shared/colombia/gm_forms/assets/front/images/jellys/66a140af0095e.png" alt="Chevrolet Onix" />
+    <h2>Chevrolet Onix</h2>
+    <p>R$ 160/dia</p>
+    <button class="btn-info" onclick="abrirModal('onix')">Informações</button>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRteyobVuhbaJ61uwdxoHmng-_0V_Q5WfUh6g&s" alt="Ford Ka" />
+    <h2>Ford Ka</h2>
+    <p>R$ 140/dia</p>
+    <button class="btn-info" onclick="abrirModal('ka')">Informações</button>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFwuTgfDAjsA-Au8FoQ4Oial5vZ2ATnDI-fRYQCrbNOcG7-o5p3GaesDYNkQlk2gbIwTs&usqp=CAU" alt="Nissan Versa" />
+    <h2>Nissan Versa</h2>
+    <p>R$ 180/dia</p>
+    <button class="btn-info" onclick="abrirModal('versa')">Informações</button>
+  </div>
+
+  <!-- Card 8 -->
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP0p1N_m5hrIj5k4RRrOx19xKrlQEv4KbQSw&s" alt="Toyota Corolla" />
+    <h2>Toyota Corolla</h2>
+    <p>R$ 200/dia</p>
+    <button class="btn-info" onclick="abrirModal('corolla')">Informações</button>
+  </div>
+
+  <!-- Card 9 -->
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJRHP-86TDfVSz2ZA2B1ySvnda1GswuYMgCw&s" alt="Honda Civic" />
+    <h2>Honda Civic</h2>
+    <p>R$ 220/dia</p>
+    <button class="btn-info" onclick="abrirModal('civic')">Informações</button>
+  </div>
+
+  <!-- Card 10 -->
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxRUQGtCls757fBBgWsJqDb35RtKxsQvlsw&s" alt="BMW Série 3" />
+    <h2>BMW Série 3</h2>
+    <p>R$ 300/dia</p>
+    <button class="btn-info" onclick="abrirModal('bmw')">Informações</button>
+  </div>
+</main>
+
+<!-- Modal -->
+<div id="modalCarro" class="modal">
+  <div class="modal-content">
+    <span class="btn-fechar" onclick="fecharModal()">X</span>
+    <img id="modalImg" src="" alt="">
+    <h2 id="modalTitulo" class="modal-title"></h2>
+    <ul id="modalLista"></ul>
+  </div>
+</div>
+
+<!-- Script para abrir e fechar modal -->
+<script>
+  const carros = {
+    fiat: {
+      nome: "Fiat Uno",
+      imagem: "https://s2-autoesporte.glbimg.com/eR5mRr74YzAa0YGcOJQxKAH0y4c=/0x0:620x400/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/w/1/nrsDdXTpSRnonpdBJERA/2015-03-19-uno2.png",
+      itens: [
+        "Pneus em bom estado",
+        "Motor revisado",
+        "Ar-condicionado funcionando",
+        "Interior em bom estado",
+        "Luzes funcionais"
+      ]
+    },
+    gol: {
+      nome: "VW Gol",
+      imagem: "https://www.webmotors.com.br/imagens/prod/347690/VOLKSWAGEN_GOL_1.0_12V_MPI_TOTALFLEX_4P_MANUAL_34769009012781312.webp",
+      itens: [
+        "Pneus novos",
+        "Motor em excelente estado",
+        "Sem ar-condicionado",
+        "Bancos em couro",
+        "Faróis com ajuste"
+      ]
+    },
+    kwide: {
+      nome: "Renault Kwid",
+      imagem: "https://cqcs.com.br/wp-content/uploads/2024/04/kwid-2022-zen-03.png",
+      itens: [
+        "Pneus novos",
+        "Motor revisado recentemente",
+        "Ar-condicionado automático",
+        "Interior limpo e conservado",
+        "Sensor de ré ativo"
+      ]
+    },
+    hb20: {
+      nome: "Hyundai HB20",
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXuS4mdJL-7ljjH8-Cqg2eXeJhdIPoHJsto15ODCDLIcwQt0e-Y99f2EZaW3jFbXm1jPY&usqp=CAU",
+      itens: [
+        "Pneus em ótimo estado",
+        "Motor revisado",
+        "Ar-condicionado dual zone",
+        "Interior impecável",
+        "Sistema multimídia atualizado"
+      ]
+    },
+    onix: {
+      nome: "Chevrolet Onix",
+      imagem: "https://secure-developments.com/shared/colombia/gm_forms/assets/front/images/jellys/66a140af0095e.png",
+      itens: [
+        "Pneus sem desgaste",
+        "Motor potente",
+        "Ar-condicionado digital",
+        "Bancos confortáveis",
+        "Iluminação interna completa"
+      ]
+    },
+    ka: {
+      nome: "Ford Ka",
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRteyobVuhbaJ61uwdxoHmng-_0V_Q5WfUh6g&s",
+      itens: [
+        "Pneus regulares",
+        "Motor verificado",
+        "Ar-condicionado manual",
+        "Interior simples mas funcional",
+        "Lanternas traseiras ok"
+      ]
+    },
+    versa: {
+      nome: "Nissan Versa",
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFwuTgfDAjsA-Au8FoQ4Oial5vZ2ATnDI-fRYQCrbNOcG7-o5p3GaesDYNkQlk2gbIwTs&usqp=CAU",
+      itens: [
+        "Pneus em bom estado",
+        "Motor econômico",
+        "Ar-condicionado automático",
+        "Espelhos elétricos",
+        "Câmera de ré inclusa"
+      ]
+    },
+    corolla: {
+      nome: "Toyota Corolla",
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP0p1N_m5hrIj5k4RRrOx19xKrlQEv4KbQSw&s",
+      itens: [
+        "Pneus premium",
+        "Motor híbrido",
+        "Ar-condicionado digital",
+        "Interior em couro",
+        "Sistema de navegação"
+      ]
+    },
+    civic: {
+      nome: "Honda Civic",
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJRHP-86TDfVSz2ZA2B1ySvnda1GswuYMgCw&s",
+      itens: [
+        "Pneus esportivos",
+        "Motor turbo",
+        "Ar-condicionado digital",
+        "Interior moderno",
+        "Teto solar"
+      ]
+    },
+    bmw: {
+      nome: "BMW Série 3",
+      imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxRUQGtCls757fBBgWsJqDb35RtKxsQvlsw&s",
+      itens: [
+        "Pneus esportivos",
+        "Motor BMW TwinPower Turbo",
+        "Ar-condicionado automático",
+        "Interior em couro premium",
+        "Sistema iDrive atualizado"
+      ]
+    }
+  };
+
+  function abrirModal(nome) {
+    const carro = carros[nome];
+    document.getElementById("modalImg").src = carro.imagem;
+    document.getElementById("modalTitulo").innerText = carro.nome;
+    const lista = document.getElementById("modalLista");
+    lista.innerHTML = "";
+    carro.itens.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      lista.appendChild(li);
+    });
+    document.getElementById("modalCarro").classList.add("active");
+  }
+
+  function fecharModal() {
+    document.getElementById("modalCarro").classList.remove("active");
+  }
+</script>

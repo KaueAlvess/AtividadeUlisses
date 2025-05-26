@@ -1,0 +1,41 @@
+/* sobre.css */
+
+.sobre-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.sobre-container h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.sobre-container p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.btn-sac {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-sac:hover {
+  background-color: #0056b3;
+}
