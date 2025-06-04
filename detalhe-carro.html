@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalhes do Carro</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="carros.css" />
+  <link rel="stylesheet" href="detalhes.css" />
+
+  <style>
+    body {
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .product-image-container {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .arrow-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #007bff;
+      font-size: 2rem;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 2;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+
+    .prev-arrow {
+      left: -20px;
+    }
+
+    .next-arrow {
+      right: -20px;
+    }
+
+    .arrow-button:hover {
+      background-color: white;
+    }
+
+    .product-details {
+      flex: 1;
+      min-width: 300px;
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-name {
+      font-size: 1.8rem;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 1.3rem;
+      color: #e67e22;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .gallery img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border 0.3s ease;
+    }
+
+    .gallery img:hover {
+      border: 2px solid #007bff;
+    }
+
+    .specs {
+      margin-top: 25px;
+    }
+
+    .specs h3 {
+      color: #007bff;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .specs ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .specs li::before {
+      content: "✔️";
+      margin-right: 10px;
+      color: #2ecc71;
+    }
+
+    .specs li {
+      margin-bottom: 8px;
+    }
+
+    .btn-reservar {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .btn-reservar:hover {
+      background-color: #218838;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #6c757d;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="logo">🚗 Locadora de Carros</div>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="carros.html">Produtos</a></li>
+      <li><a href="locacao.html">Locação</a></li>
+      <li><a href="sobre.html">Sobre Nós</a></li>
+      <li><a href="sac.html">SAC</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Conteúdo Principal -->
+<div class="container">
+
+  <!-- Imagem do carro -->
+  <div class="product-image-container">
+    <img id="mainImage" src="" alt="Imagem do carro" class="main-image" />
+    <button class="arrow-button prev-arrow" onclick="changeImage(-1)">❮</button>
+    <button class="arrow-button next-arrow" onclick="changeImage(1)">❯</button>
+
+    <!-- Miniaturas -->
+    <div class="gallery" id="thumbnailGallery"></div>
+  </div>
+
+  <!-- Informações do carro -->
+  <div class="product-details">
+    <h2 id="carroNome" class="product-name">Carregando detalhes...</h2>
+    <p class="product-price" id="carroPreco">R$ 0/dia</p>
+
+    <!-- Especificações -->
+    <div class="specs">
+      <h3>Especificações e Inspeção</h3>
+      <ul id="specsList"></ul>
+    </div>
+
+    <!-- Botões -->
+    <a href="locacao.html" class="btn-reservar" onclick="setCarroParaLocacao(event)">Reservar Agora</a>
+    <br/>
+    <a href="carros.html" class="back-button">← Voltar aos carros</a>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  const carros = {
+    fiat: {
+      nome: "Fiat Uno",
+      preco: 100,
+      imagens: [
+        "https://s2-autoesporte.glbimg.com/eR5mRr74YzAa0YGcOJQxKAH0y4c=/0x0:620x400/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/w/1/nrsDdXTpSRnonpdBJERA/2015-03-19-uno2.png", 
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXuS4mdJL-7ljjH8-Cqg2eXeJhdIPoHJsto15ODCDLIcwQt0e-Y99f2EZaW3jFbXm1jPY&usqp=CAU"
+      ],
+      itens: [
+        "Pneus em bom estado",
+        "Motor revisado",
+        "Ar-condicionado funcionando",
+        "Interior em bom estado",
+        "Luzes funcionais"
+      ]
+    },
+    gol: {
+      nome: "VW Gol",
+      preco: 120,
+      imagens: [
+        "https://www.webmotors.com.br/imagens/prod/347690/VOLKSWAGEN_GOL_1.0_12V_MPI_TOTALFLEX_4P_MANUAL_34769009012781312.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0ZkLzXYBqoXhUJv9NnB6EjIhZM7u5l9qD_w&usqp=CAU"
+      ],
+      itens: [
+        "Pneus novos",
+        "Motor em excelente estado",
+        "Sem ar-condicionado",
+        "Bancos em couro",
+        "Faróis com ajuste"
+      ]
+    },
+    kwide: {
+      nome: "Renault Kwid",
+      preco: 130,
+      imagens: [
+        "https://cqcs.com.br/wp-content/uploads/2024/04/kwid-2022-zen-03.png",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0ZkLzXYBqoXhUJv9NnB6EjIhZM7u5l9qD_w&usqp=CAU"
+      ],
+      itens: [
+        "Pneus novos",
+        "Motor revisado recentemente",
+        "Ar-condicionado automático",
+        "Interior limpo e conservado",
+        "Sensor de ré ativo"
+      ]
+    }
+  };
+
+  let currentImageIndex = 0;
+
+  const carroSelecionado = localStorage.getItem("carroDetalhe");
+
+  if (carroSelecionado && carros[carroSelecionado]) {
+    const carro = carros[carroSelecionado];
+
+    document.getElementById("carroNome").innerText = carro.nome;
+    document.getElementById("carroPreco").innerText = `R$ ${carro.preco}/dia`;
+
+    updateMainImage(carro);
+    createThumbnails(carro);
+
+    const specsList = document.getElementById("specsList");
+    carro.itens.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      specsList.appendChild(li);
+    });
+  } else {
+    document.getElementById("carroNome").innerText = "Carro não encontrado.";
+  }
+
+  function updateMainImage(carro) {
+    document.getElementById("mainImage").src = carro.imagens[currentImageIndex];
+  }
+
+  function createThumbnails(carro) {
+    const gallery = document.getElementById("thumbnailGallery");
+    carro.imagens.forEach((img, index) => {
+      const thumb = document.createElement("img");
+      thumb.src = img;
+      thumb.alt = `${carro.nome} - Vista ${index + 1}`;
+      thumb.onclick = () => {
+        currentImageIndex = index;
+        updateMainImage(carro);
+      };
+      gallery.appendChild(thumb);
+    });
+  }
+
+  function changeImage(direction) {
+    const images = carros[carroSelecionado].imagens;
+    currentImageIndex += direction;
+    if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+    if (currentImageIndex >= images.length) currentImageIndex = 0;
+    updateMainImage(carros[carroSelecionado]);
+  }
+
+  // Salva o carro antes de redirecionar
+  function setCarroParaLocacao(event) {
+    if (carroSelecionado && carros[carroSelecionado]) {
+      const carro = carros[carroSelecionado];
+      localStorage.setItem("carroSelecionadoLocacao", JSON.stringify({ nome: carro.nome }));
+    } else {
+      event.preventDefault();
+      alert("Erro ao carregar os dados do carro.");
+    }
+  }
+</script>
+
+</body>
+</html>
