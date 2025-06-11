@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f4f4;
@@ -15,7 +14,6 @@ body {
 }
 
 /* Header com navegação */
-=======
 /* Body com fundo animado em gradiente */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -83,12 +81,11 @@ body {
 }
 
 /* Header estilizado */
->>>>>>> 5dddeb6c4b4223e668509e6bf942999af806b20e
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-<<<<<<< HEAD
+
   background-color: #007bff;
   padding: 15px 30px;
   color: white;
@@ -127,7 +124,6 @@ body {
 .hero h1 {
   font-size: 2rem;
   color: #007bff;
-=======
   background-color: #1c1f2b;
   padding: 1rem 2rem;
   position: sticky;
@@ -200,7 +196,6 @@ body {
 .navbar .nav-list li a:hover {
   width: 100%;
   color: #00bcd4;
->>>>>>> 5dddeb6c4b4223e668509e6bf942999af806b20e
 }
 
 /* Container de carros */
@@ -213,14 +208,13 @@ body {
   padding: 0 20px;
 }
 
-<<<<<<< HEAD
 .card {
   background: white;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
-=======
+}
 /* Estilo dos cards */
 .card {
   background: rgba(255, 255, 255, 0.95);
@@ -228,17 +222,14 @@ body {
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
->>>>>>> 5dddeb6c4b4223e668509e6bf942999af806b20e
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-<<<<<<< HEAD
 }
 
 .card:hover {
   transform: translateY(-5px);
-=======
   border: 1px solid rgba(0, 123, 255, 0.2);
   backdrop-filter: blur(10px);
   position: relative;
@@ -248,7 +239,6 @@ body {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 15px 30px rgba(0, 123, 255, 0.25);
   background: rgba(255, 255, 255, 1);
->>>>>>> 5dddeb6c4b4223e668509e6bf942999af806b20e
 }
 
 .card img {
@@ -269,7 +259,6 @@ body {
   color: #333;
 }
 
-<<<<<<< HEAD
 .card button {
   background-color: #007bff;
   color: white;
@@ -283,7 +272,7 @@ body {
 
 .card button:hover {
   background-color: #0056b3;
-=======
+}
 /* Estilo dos botões */
 .card button {
   background: linear-gradient(135deg, #007bff, #00c3ff);
@@ -321,5 +310,4 @@ body {
 .card button:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
->>>>>>> 5dddeb6c4b4223e668509e6bf942999af806b20e
 }
