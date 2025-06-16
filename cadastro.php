@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
     $endereco = $_POST['endereco'];
+    $tipo_usuario = ['tipo_usuario' => 'cliente'];
 
     $stmt = $conexao->prepare("INSERT INTO usuarios (nome, senha, email, telefone, sexo, data_nasc, cidade, estado, endereco) VALUES ('$nome','$senha','$email','$telefone','$sexo', '$data_nasc', '$cidade', '$estado', '$endereco')");
 
@@ -60,6 +61,7 @@ if (isset($_POST['submit'])) {
             border: none;
             outline: none;
             font-size: 15px;
+            color: white;
         }
         .inputBox{
             position: relative;

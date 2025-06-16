@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,7 +21,7 @@
   </div>
   <nav class="navbar">
     <ul class="nav-list">
-      <li><a href="index.php">Produtos</a></li>
+      <li><a href="index.php">Cadastrar Carros</a></li>
       <li><a href="locacao.php">Locação</a></li>
       <li><a href="sobre.php">Sobre Nós</a></li>
       <li><a href="sac.php">SAC</a></li>
@@ -33,6 +36,7 @@
     <h1>Carros modernos, preços imperdíveis!</h1>
   </div>
 </section>
+<h1>Cadastrar carros</h1>
 
   <!-- Container de carros -->
   <main class="carros-container">

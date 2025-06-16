@@ -1,33 +1,28 @@
 <?php
+session_start();
 
-    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
-    {
-        include_once('conexao.php');
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+include_once('conexao.php');
 
-        //print_r('Email: ' . $email);
-        //print_r('<br>');
-        //print_r('Senha: ' . $senha);
+if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
 
-        $sql = "SELECT * FROM usuarios WHERE email =  '$email' and senha = '$senha'";
+    $email = $conexao->real_escape_string($_POST['email']);
+    $senha = $conexao->real_escape_string($_POST['senha']);
 
-        $result = $conexao->query($sql);
+    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+    $result = $conexao->query($sql);
 
-        //print_r($result);
+    if ($result->num_rows == 1) {
+        $usuario = $result->fetch_assoc();
+        $_SESSION['email'] = $usuario['email'];
 
-        if(mysqli_num_rows($result) < 1)
-        {
-            header('Location: login.php');
+        if ($usuario['tipo_usuario'] == 'admin') {
+            header("Location: cadastrar_carro.php");
+        } else {
+            header("Location: index.php");
         }
-        else
-        {
-            header('Location: index.php');
-        }
+        exit;
+    } else {
+        echo "<script>alert('Email ou senha inválidos.'); window.location.href='testLogin.php';</script>";
     }
-    else
-    {
-        header('Location: login.php');
-    }
-
+}
 ?>
