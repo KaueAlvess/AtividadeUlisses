@@ -1,0 +1,82 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    transition: background 0.5s ease;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 340px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.login-container:hover {
+    transform: translateY(-3px);
+}
+
+.login-container h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1e90ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+}
+
+.btn-register {
+    background-color: #2ecc71;
+}
+
+.btn-register:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #aaa;
+}

@@ -1,0 +1,126 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    padding: 20px;
+}
+
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-3px);
+}
+
+legend {
+    border: none;
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+fieldset {
+    border: 2px solid dodgerblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.inputBox {
+    position: relative;
+}
+
+.inputUser {
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 15px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.labelInput {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    color: #ccc;
+}
+
+.inputUser:focus ~ .labelInput,
+.inputUser:valid ~ .labelInput {
+    top: -15px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+
+#data_nascimento {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #1e90ff, #00bcd4);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(to right, #1c86ee, #0097a7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 140, 255, 0.3);
+}

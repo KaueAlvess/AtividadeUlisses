@@ -18,10 +18,11 @@
   </div>
   <nav class="navbar">
     <ul class="nav-list">
-      <li><a href="index.php">Produtos</a></li>
-      <li><a href="locacao.php">Locação</a></li>
-      <li><a href="sobre.php">Sobre Nós</a></li>
-      <li><a href="sac.php">SAC</a></li>
+      <li><a href="index2.php">Produtos</a></li>
+      <li><a href="locacao2.php">Locação</a></li>
+      <li><a href="cadastrar_carro.php">Cadastrar Carros</a></li>
+      <li><a href="sobre2.php">Sobre Nós</a></li>
+      <li><a href="sac2.php">SAC</a></li>
     </ul>
   </nav>
 </header>
