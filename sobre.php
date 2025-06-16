@@ -13,14 +13,14 @@
 <!-- Header -->
 <header class="site-header">
   <div class="logo-container">
-    <a href="index.html" class="logo-typing">🚗 Sobre-Nós</a>
+    <a href="index.php" class="logo-typing">🚗 Sobre-Nós</a>
   </div>
   <nav class="navbar">
     <ul class="nav-list">
-      <li><a href="index.html">Produtos</a></li>
-      <li><a href="locacao.html">Locação</a></li>
-      <li><a href="sobre.html">Sobre Nós</a></li>
-      <li><a href="sac.html">SAC</a></li>
+      <li><a href="index.php">Produtos</a></li>
+      <li><a href="locacao.php">Locação</a></li>
+      <li><a href="sobre.php">Sobre Nós</a></li>
+      <li><a href="sac.php">SAC</a></li>
     </ul>
   </nav>
 </header>

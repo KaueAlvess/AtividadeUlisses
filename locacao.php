@@ -1,3 +1,24 @@
+<?php
+if (isset($_POST['submit'])) {
+    include_once('conexao.php');
+
+    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
+    $telefone = $_POST['telefone'];
+    $data_inicio = $_POST['data-inicio'];
+    $data_fim = $_POST['data-fim'];
+    $carro = $_POST['carro'];
+
+    $stmt = $conexao->prepare("INSERT INTO Alugar (nome, cpf, telefone, data_inicio, data_fim, carro) VALUES ('$nome','$cpf','$telefone','$data_inicio','$data_fim', '$carro')");
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Dados salvos com sucesso!');</script>";
+    } else {
+        echo "<script>alert('Erro ao salvar os dados.');</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,14 +33,14 @@
 <!-- Header -->
 <header class="site-header">
   <div class="logo-container">
-    <a href="index.html" class="logo-typing">🚗 Locação dos Carros</a>
+    <a href="index.php" class="logo-typing">🚗 Locação dos Carros</a>
   </div>
   <nav class="navbar">
     <ul class="nav-list">
-      <li><a href="index.html">Produtos</a></li>
-      <li><a href="locacao.html">Locação</a></li>
-      <li><a href="sobre.html">Sobre Nós</a></li>
-      <li><a href="sac.html">SAC</a></li>
+      <li><a href="index.php">Produtos</a></li>
+      <li><a href="locacao.php">Locação</a></li>
+      <li><a href="sobre.php">Sobre Nós</a></li>
+      <li><a href="sac.php">SAC</a></li>
     </ul>
   </nav>
 </header>
@@ -31,7 +52,7 @@
 
 <!-- Formulário -->
 <main class="selecao-container">
-  <form id="form-locacao">
+  <form action="locacao.php" method="POST" id="form-locacao">
     <div class="form-group">
       <label for="nome">Nome completo:</label>
       <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
@@ -73,7 +94,7 @@
 
     <div class="resumo" id="resumo-selecao">Nenhum carro selecionado.</div>
 
-    <button type="submit" class="enviar-btn">Confirmar Locação</button>
+    <button type="submit" class="enviar-btn" name="submit">Confirmar Locação</button>
   </form>
 </main>
 
@@ -84,68 +105,48 @@
     <div class="dados-confirmacao" id="dadosConfirmacao"></div>
     <div class="botoes-confirmacao">
       <button class="btn-editar" onclick="editarDados()">Editar</button>
-      <button class="btn-confirmar" onclick="confirmarLocacao()">Confirmar</button>
+      <button type="submit" class="btn-confirmar" name="submit" onclick="confirmarLocacao()">Confirmar</button>
     </div>
   </div>
 </div>
 
 <script>
-  const radios = document.querySelectorAll('input[name="carro"]');
-  const resumo = document.getElementById("resumo-selecao");
+  // Seleciona os botões de rádio e o elemento de resumo
+const radios = document.querySelectorAll('input[name="carro"]');
+const resumo = document.getElementById("resumo-selecao");
 
-  // Atualiza resumo ao mudar o carro
-  radios.forEach(radio => {
+// Atualiza o resumo ao mudar o carro
+radios.forEach(radio => {
     radio.addEventListener("change", () => {
-      if (radio.checked) {
-        resumo.textContent = `Você selecionou: ${radio.value}`;
-      }
+        if (radio.checked) {
+            resumo.textContent = `Você selecionou: ${radio.value}`;
+        }
     });
-  });
+});
 
-  // Carrega carro salvo (da página detalhe-carro)
-  window.addEventListener("load", function () {
+// Carrega carro salvo do localStorage ao carregar a página
+window.addEventListener("load", function () {
     const carroSalvo = localStorage.getItem("carroSelecionadoLocacao");
     if (carroSalvo) {
-      const carroObj = JSON.parse(carroSalvo);
-      const radio = document.querySelector(`input[value="${carroObj.nome}"]`);
-      if (radio) {
-        radio.checked = true;
-        resumo.textContent = `Você selecionou: ${carroObj.nome}`;
-      }
+        const carroObj = JSON.parse(carroSalvo);
+        const radio = document.querySelector(`input[value="${carroObj.nome}"]`);
+        if (radio) {
+            radio.checked = true;
+            resumo.textContent = `Você selecionou: ${carroObj.nome}`;
+        }
     }
-  });
+});
 
-  // Função para abrir modal de confirmação
-  function abrirModalConfirmacao(dados) {
-    const html = `
-      <p><strong>Nome:</strong> ${dados.nome}</p>
-      <p><strong>CPF:</strong> ${dados.cpf}</p>
-      <p><strong>Telefone:</strong> ${dados.telefone}</p>
-      <p><strong>Data de início:</strong> ${dados.dataInicio}</p>
-      <p><strong>Data de fim:</strong> ${dados.dataFim}</p>
-      <p><strong>Carro:</strong> ${dados.carro}</p>
-    `;
-    document.getElementById("dadosConfirmacao").innerHTML = html;
-    document.getElementById("modalConfirmacao").classList.add("active");
-  }
+let shouldSubmit = false;
 
-  function editarDados() {
-    document.getElementById("modalConfirmacao").classList.remove("active");
-  }
-
-  function confirmarLocacao() {
-    alert("✅ Locação confirmada!");
-    document.getElementById("modalConfirmacao").classList.remove("active");
-    document.getElementById("form-locacao").reset();
-    document.getElementById("resumo-selecao").textContent = "Nenhum carro selecionado.";
-  }
-
-  // Valida e mostra modal
-  document.getElementById("form-locacao").addEventListener("submit", function(e) {
+document.getElementById("form-locacao").addEventListener("submit", function(e) {
+    if (shouldSubmit) {
+        return;
+    }
     e.preventDefault();
 
     const selected = document.querySelector('input[name="carro"]:checked');
-    if (!selected) return alert("❌ Por favor, selecione um carro.");
+    if (!selected) return alert("Por favor, selecione um carro.");
 
     const nome = document.getElementById("nome").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
@@ -154,12 +155,54 @@
     const dataFim = document.getElementById("data-fim").value;
 
     if (!nome || !cpf || !telefone || !dataInicio || !dataFim) {
-      return alert("⚠️ Preencha todos os campos.");
+        return alert("Preencha todos os campos.");
     }
 
-    const dados = { nome, cpf, telefone, dataInicio, dataFim, carro: selected.value };
+    const dados = {
+        nome,
+        cpf,
+        telefone,
+        dataInicio,
+        dataFim,
+        carro: selected.value
+    };
+
     abrirModalConfirmacao(dados);
-  });
+});
+
+function abrirModalConfirmacao(dados) {
+    const html = `
+        <p><strong>Nome:</strong> ${dados.nome}</p>
+        <p><strong>CPF:</strong> ${dados.cpf}</p>
+        <p><strong>Telefone:</strong> ${dados.telefone}</p>
+        <p><strong>Data de início:</strong> ${dados.dataInicio}</p>
+        <p><strong>Data de fim:</strong> ${dados.dataFim}</p>
+        <p><strong>Carro:</strong> ${dados.carro}</p>
+    `;
+    document.getElementById("dadosConfirmacao").innerHTML = html;
+    document.getElementById("modalConfirmacao").classList.add("active");
+}
+
+function editarDados() {
+    document.getElementById("modalConfirmacao").classList.remove("active");
+}
+
+function confirmarLocacao() {
+    alert("Locação confirmada!");
+
+    // Define a flag para permitir o envio do formulário
+    shouldSubmit = true;
+
+    // Envia o formulário para o servidor
+    document.getElementById("form-locacao").submit();
+
+    // Limpa o formulário após o envio (opcional)
+    setTimeout(() => {
+        document.getElementById("form-locacao").reset();
+        document.getElementById("resumo-selecao").textContent = "Nenhum carro selecionado.";
+        shouldSubmit = false; // Reseta a flag após o envio
+    }, 0);
+}
 </script>
 
 </body>
