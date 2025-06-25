@@ -2,9 +2,10 @@
 
     $dbHost = 'Localhost';
     $dbUsername = 'root';
-    $dbPassword = 'root';
+    $dbPassword = '';
     $dbName = 'locadora';
 
     $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+    
 
 ?>

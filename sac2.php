@@ -45,7 +45,7 @@
     <p><strong>Telefone:</strong> (11) 4002-8922</p>
     <p><strong>Horário de atendimento:</strong> Segunda a Sexta das 9h às 18h</p>
 
-    <a href="sobre.html" class="btn-voltar">Voltar para Sobre Nós</a>
+    <a href="sobre2.php" class="btn-voltar">Voltar para Sobre Nós</a>
   </main>
 
 </body>
